@@ -1,6 +1,6 @@
 package ru.andrey.search
 
-class GoogleSearcher : BrowserSearcher() {
+open class GoogleSearcher : BrowserSearcher() {
 
     override fun baseUrl() = "https://www.google.com/"
 

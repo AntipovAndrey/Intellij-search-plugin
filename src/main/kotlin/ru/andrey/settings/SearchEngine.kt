@@ -1,5 +1,5 @@
 package ru.andrey.settings
 
 enum class SearchEngine {
-    GOOGLE, STACKOVERFLOW
+    GOOGLE, GOOGLE_STACKOVERFLOW, STACKOVERFLOW
 }
