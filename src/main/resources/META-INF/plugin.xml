@@ -18,6 +18,14 @@
         <!-- Add your extensions here -->
     </extensions>
 
+    <extensions defaultExtensionNs="com.intellij">
+        <applicationConfigurable groupId="tools" displayName="Search Engine"
+                                 id="preferences.SearchEnginePluginConfigurable"
+                                 instance="ru.andrey.settings.SearchEngineConfigurable"/>
+        <applicationService serviceInterface="ru.andrey.settings.SearchEngineConfig"
+                            serviceImplementation="ru.andrey.settings.SearchEngineConfig"/>
+    </extensions>
+
     <actions>
         <group id="GoogleIt">
             <add-to-group group-id="EditorPopupMenu" anchor="last"/>
