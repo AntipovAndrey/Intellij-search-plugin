@@ -31,7 +31,6 @@
             <add-to-group group-id="EditorPopupMenu" anchor="last"/>
             <add-to-group group-id="ConsoleEditorPopupMenu" anchor="first"/>
             <action class="ru.andrey.actions.SearchAction" id="SearchItAction"
-                    text="search"
                     description="Search the selected term">
                 <keyboard-shortcut first-keystroke="alt G" keymap="$default"/>
             </action>
