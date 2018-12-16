@@ -14,7 +14,7 @@ import javax.inject.Inject
 @Singleton
 class SearcherProvider @Inject constructor(private val settings: Settings) : Provider<Searcher> {
 
-    private val searchers: MutableMap<SearchEngine, Searcher> = HashMap();
+    private val searchers: MutableMap<SearchEngine, Searcher> = HashMap()
 
     override fun get(): Searcher {
         return when (settings.searchEngine) {

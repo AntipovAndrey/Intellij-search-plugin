@@ -2,7 +2,7 @@ package ru.andrey.settings
 
 import javax.inject.Singleton
 
-typealias SearchEngineListener = (new: SearchEngine) -> Unit
+private typealias SearchEngineListener = (new: SearchEngine) -> Unit
 
 @Singleton
 class Settings {

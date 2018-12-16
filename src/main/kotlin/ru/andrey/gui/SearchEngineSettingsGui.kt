@@ -12,20 +12,20 @@ class SearchEngineSettingsGui(engine: SearchEngine) {
 
     lateinit var root: JPanel
 
+    init {
+        when (engine) {
+            SearchEngine.GOOGLE -> googleRadioButton.isSelected = true
+            SearchEngine.GOOGLE_STACKOVERFLOW -> googleStackOverflowRadioButton.isSelected = true
+            SearchEngine.STACKOVERFLOW -> stackOverflowRadioButton.isSelected = true
+        }
+    }
+
     fun selectedEngine(): SearchEngine {
         return when {
             googleRadioButton.isSelected -> SearchEngine.GOOGLE
             googleStackOverflowRadioButton.isSelected -> SearchEngine.GOOGLE_STACKOVERFLOW
             stackOverflowRadioButton.isSelected -> SearchEngine.STACKOVERFLOW
             else -> throw IllegalStateException()
-        }
-    }
-
-    init {
-        when (engine) {
-            SearchEngine.GOOGLE -> googleRadioButton.isSelected = true
-            SearchEngine.GOOGLE_STACKOVERFLOW -> googleStackOverflowRadioButton.isSelected = true
-            SearchEngine.STACKOVERFLOW -> stackOverflowRadioButton.isSelected = true
         }
     }
 }

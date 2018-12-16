@@ -12,7 +12,7 @@ abstract class BrowserSearcher : Searcher {
 
     protected open fun url(term: String): String = "${baseUrl()}${queryUrl(term)}"
 
-    abstract fun baseUrl(): String
+    protected abstract fun baseUrl(): String
 
-    abstract fun queryUrl(term: String): String
+    protected abstract fun queryUrl(term: String): String
 }
