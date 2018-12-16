@@ -9,3 +9,4 @@ gradlew.bat
 *.iml
 *.ipr
 /out/
+gradle.properties
