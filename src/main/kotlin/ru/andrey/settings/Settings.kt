@@ -1,7 +1,9 @@
 package ru.andrey.settings
 
+import ru.andrey.search.Searcher
+import ru.andrey.settings.SearchEngine.GOOGLE
 import javax.inject.Singleton
-import kotlin.properties.Delegates
+import kotlin.properties.Delegates.observable
 
 private typealias SearchEngineListener = (new: SearchEngine) -> Unit
 
@@ -10,7 +12,10 @@ class Settings {
 
     private val engineChangedListeners: MutableList<SearchEngineListener> = ArrayList()
 
-    var searchEngine: SearchEngine by Delegates.observable(SearchEngine.GOOGLE) { _, _, newValue ->
+    val searcher: Searcher
+        get() = searchEngine.searcher
+
+    var searchEngine: SearchEngine by observable(GOOGLE) { _, _, newValue ->
         engineChangedListeners.forEach { acceptor -> acceptor(newValue) }
     }
 

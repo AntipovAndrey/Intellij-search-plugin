@@ -7,7 +7,7 @@ import javax.swing.JComponent
 
 class SearchEngineConfigurable : Configurable {
 
-    private val config: SearchEngineConfig = Di.getInstance(SearchEngineConfig::class.java)
+    private val config: SearchEngineConfig = Di[SearchEngineConfig::class]
 
     private lateinit var settingsGui: SearchEngineSettingsGui
 

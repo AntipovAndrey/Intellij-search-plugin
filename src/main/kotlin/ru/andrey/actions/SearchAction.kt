@@ -11,7 +11,7 @@ import ru.andrey.settings.Settings
 
 class SearchAction : AnAction() {
 
-    private val settings: Settings = Di.getInstance(Settings::class.java)
+    private val settings: Settings = Di[Settings::class]
 
     init {
         updateActionName(settings.searchEngine)
@@ -20,8 +20,8 @@ class SearchAction : AnAction() {
 
     override fun actionPerformed(e: AnActionEvent) {
         val caretModel = e.getData<Editor>(LangDataKeys.EDITOR)!!.caretModel
-        Di.getInstance(Searcher::class.java)
-                .search(caretModel.currentCaret.selectedText)
+        val term = caretModel.currentCaret.selectedText
+        Di[Searcher::class].search(term)
     }
 
     private fun updateActionName(engine: SearchEngine) {

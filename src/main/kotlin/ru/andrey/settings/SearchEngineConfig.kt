@@ -5,7 +5,7 @@ import ru.andrey.di.Di
 
 class SearchEngineConfig : PersistentStateComponent<SearchEngine> {
 
-    private val settings: Settings = Di.getInstance(Settings::class.java)
+    private val settings: Settings = Di[Settings::class]
 
     override fun getState(): SearchEngine {
         return settings.searchEngine

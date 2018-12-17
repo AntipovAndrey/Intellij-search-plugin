@@ -1,6 +1,11 @@
 package ru.andrey.di
 
 import com.google.inject.Guice
-import com.google.inject.Injector
+import kotlin.reflect.KClass
 
-object Di : Injector by Guice.createInjector(SearcherModule())!!
+object Di {
+
+    private val injector = Guice.createInjector(SearcherModule())!!
+
+    operator fun <T : Any> get(type: KClass<T>) = injector.getInstance(type.java)!!
+}
