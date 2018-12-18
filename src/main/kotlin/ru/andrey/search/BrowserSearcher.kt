@@ -1,6 +1,7 @@
 package ru.andrey.search
 
 import com.intellij.ide.BrowserUtil
+import com.intellij.util.io.URLUtil
 
 abstract class BrowserSearcher : Searcher {
 
@@ -10,7 +11,7 @@ abstract class BrowserSearcher : Searcher {
         }
     }
 
-    protected open fun url(term: String): String = "${baseUrl()}${queryUrl(term)}"
+    protected open fun url(term: String): String = URLUtil.encodeURIComponent("${baseUrl()}${queryUrl(term)}")
 
     protected abstract fun baseUrl(): String
 
