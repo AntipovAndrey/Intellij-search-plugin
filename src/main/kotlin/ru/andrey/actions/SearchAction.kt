@@ -12,18 +12,17 @@ class SearchAction : AnAction() {
 
     private val settings: Settings = Di[Settings::class]
 
-    init {
-        updateAction(settings.searchEngine)
-        settings.onEngineChanged(this::updateAction)
-    }
-
     override fun actionPerformed(e: AnActionEvent) {
         val caretModel = e.getData(LangDataKeys.EDITOR)!!.caretModel
         val term = caretModel.currentCaret.selectedText
         Di[Searcher::class].search(term)
     }
 
-    private fun updateAction(engine: SearchEngine) {
+    override fun update(event: AnActionEvent) {
+        updateActionAppearance(settings.searchEngine)
+    }
+
+    private fun updateActionAppearance(engine: SearchEngine) {
         with(templatePresentation) {
             text = engine.description
             icon = engine.icon
