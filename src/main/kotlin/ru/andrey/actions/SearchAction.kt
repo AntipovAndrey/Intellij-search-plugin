@@ -13,6 +13,11 @@ class SearchAction : AnAction(), DumbAware {
 
     private val settings: Settings = Di[Settings::class]
 
+    init {
+        updateActionAppearance(settings.searchEngine)
+        settings.onEngineChanged(this::updateActionAppearance)
+    }
+
     override fun actionPerformed(e: AnActionEvent) {
         e.getData(CommonDataKeys.EDITOR)?.let {
             val term = it.caretModel.currentCaret.selectedText
