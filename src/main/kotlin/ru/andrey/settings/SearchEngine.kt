@@ -1,34 +1,35 @@
 package ru.andrey.settings
 
+import com.intellij.openapi.util.IconLoader
 import ru.andrey.search.GoogleSearcher
 import ru.andrey.search.Searcher
 import ru.andrey.search.StackOverflowGoogleSearcher
 import ru.andrey.search.StackOverflowSearcher
+import javax.swing.Icon
 
-enum class SearchEngine {
+enum class SearchEngine(
+        val description: String,
+        val searcher: Searcher,
+        val icon: Icon
+) {
 
-    GOOGLE {
+    GOOGLE(
+            description = "Search with Google",
+            searcher = GoogleSearcher(),
+            icon = icon("google")
+    ),
 
-        override val description = "Search with Google"
+    GOOGLE_STACKOVERFLOW(
+            description = "Search with Google on SO",
+            searcher = StackOverflowGoogleSearcher(),
+            icon = icon("stackoverflow")
+    ),
 
-        override val searcher = GoogleSearcher()
-    },
-
-    GOOGLE_STACKOVERFLOW {
-
-        override val description = "Search with Google on SO"
-
-        override val searcher = StackOverflowGoogleSearcher()
-    },
-
-    STACKOVERFLOW {
-
-        override val description = "Search with StackOverflow"
-
-        override val searcher = StackOverflowSearcher()
-    };
-
-    abstract val description: String
-
-    abstract val searcher: Searcher
+    STACKOVERFLOW(
+            description = "Search with StackOverflow",
+            searcher = StackOverflowSearcher(),
+            icon = icon("stackoverflow")
+    )
 }
+
+private fun icon(name: String) = IconLoader.getIcon("/icon/$name.png")
