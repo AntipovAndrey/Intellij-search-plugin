@@ -1,7 +1,7 @@
 <idea-plugin>
     <id>ru.andrey.search-plugin</id>
     <name>Search selected text</name>
-    <vendor email="antipov11.11@gmail.com" url="https://github.com/AntipovAndrey">GitHub</vendor>
+    <vendor email="antipov11.11@gmail.com" url="https://github.com/AntipovAndrey">Antipov Andrey</vendor>
 
     <description><![CDATA[
     Search text that you've selected with Alt + G. Change the search engine in Settings | Tools | Change search engine
@@ -28,4 +28,5 @@
         </group>
     </actions>
     <idea-version since-build="141.0"/>
+    <change-notes>1.0.1: Disable action when no text selected, Add icons</change-notes>
 </idea-plugin>
