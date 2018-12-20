@@ -18,15 +18,14 @@ class SearchAction : AnAction(), DumbAware {
         settings.onEngineChanged(this::updateActionAppearance)
     }
 
-    override fun actionPerformed(e: AnActionEvent) {
-        e.getData(CommonDataKeys.EDITOR)?.let {
+    override fun actionPerformed(event: AnActionEvent) {
+        event.getData(CommonDataKeys.EDITOR)?.let {
             val term = it.caretModel.currentCaret.selectedText
             settings.searchEngine.searcher.search(term)
         }
     }
 
     override fun update(event: AnActionEvent) {
-        updateActionAppearance(settings.searchEngine)
         disableIfNothingToCopy(event)
     }
 
