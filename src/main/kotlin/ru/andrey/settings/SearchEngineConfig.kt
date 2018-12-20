@@ -1,17 +1,23 @@
 package ru.andrey.settings
 
 import com.intellij.openapi.components.PersistentStateComponent
-import ru.andrey.di.Di
+import com.intellij.openapi.components.State
+import com.intellij.openapi.components.Storage
+import com.intellij.util.xmlb.XmlSerializerUtil
 
-class SearchEngineConfig : PersistentStateComponent<SearchEngine> {
+@State(
+        name = "preferences.SearchEnginePluginConfig_search_engine",
+        storages = [Storage("search_plugin.xml")]
+)
+class SearchEngineConfig : PersistentStateComponent<SearchEngineConfig> {
 
-    private val settings: Settings = Di[Settings::class]
+    var searchEngine: SearchEngine? = null
 
-    override fun getState(): SearchEngine {
-        return settings.searchEngine
+    override fun getState(): SearchEngineConfig {
+        return this
     }
 
-    override fun loadState(searchEngine: SearchEngine) {
-        settings.searchEngine = searchEngine
+    override fun loadState(config: SearchEngineConfig) {
+        XmlSerializerUtil.copyBean(config, this)
     }
 }

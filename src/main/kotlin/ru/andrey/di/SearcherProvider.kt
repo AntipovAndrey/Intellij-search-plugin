@@ -9,5 +9,5 @@ import javax.inject.Singleton
 @Singleton
 class SearcherProvider @Inject constructor(private val settings: Settings) : Provider<Searcher> {
 
-    override fun get() = settings.searcher
+    override fun get() = settings.searchEngine.searcher
 }
