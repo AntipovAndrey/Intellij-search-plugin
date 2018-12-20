@@ -21,7 +21,7 @@ class SearchAction : AnAction(), DumbAware {
     override fun actionPerformed(event: AnActionEvent) {
         event.getData(CommonDataKeys.EDITOR)?.let {
             val term = it.caretModel.currentCaret.selectedText
-            settings.searchEngine.searcher.search(term)
+            settings.searchEngine.searcher.search(term!!)
         }
     }
 

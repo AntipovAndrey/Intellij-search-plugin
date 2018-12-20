@@ -5,10 +5,8 @@ import com.intellij.util.io.URLUtil.encodeURIComponent
 
 abstract class BrowserSearcher : Searcher {
 
-    override fun search(term: String?) {
-        term?.let {
-            BrowserUtil.browse(url(it))
-        }
+    override fun search(term: String) {
+        BrowserUtil.browse(url(term))
     }
 
     protected open fun url(term: String): String = "${baseUrl()}${queryUrl(encodeURIComponent(term))}"
