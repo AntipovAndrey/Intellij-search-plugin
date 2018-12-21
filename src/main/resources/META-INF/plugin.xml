@@ -28,5 +28,10 @@
         </group>
     </actions>
     <idea-version since-build="141.0"/>
-    <change-notes>1.0.1: Disable action when no text selected, Add icons</change-notes>
+    <change-notes><![CDATA[
+    <ul>
+        <li>1.1.0: Fix URI encoding, change settings persistence</li>
+        <li> 1.0.1: Disable action when no text selected, Add icons</li>
+    </ul>
+    ]]></change-notes>
 </idea-plugin>
